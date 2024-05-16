@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/* Accept Customer IP Address in Mstore API Route */
 add_action('woocommerce_rest_insert_shop_order_object', 'my_woocommerce_rest_insert_shop_order_object', 10, 2);
 function my_woocommerce_rest_insert_shop_order_object(WC_Order $order, $request): void
 {
@@ -23,6 +24,7 @@ function my_woocommerce_rest_insert_shop_order_object(WC_Order $order, $request)
     }
 }
 
+/* Show Customer IP in Woocommerce Order Admin Page */
 add_action('woocommerce_admin_order_data_after_order_details', 'my_woocommerce_admin_order_data_after_order_details', 44, 1);
 function my_woocommerce_admin_order_data_after_order_details($order): void
 {
