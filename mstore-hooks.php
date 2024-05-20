@@ -38,7 +38,7 @@ function my_woocommerce_admin_order_data_after_order_details($order): void
     ?>
     <p class='form-field form-field-wide wc-customer-ip-address'>
         <label for='customer-ip-address'><?php esc_html_e('Customer IP Address:', 'woocommerce'); ?></label>
-        <strong><?php echo esc_html(get_post_meta($order_id,'customer_ip_address')); ?></strong>
+        <strong><?php echo esc_html(get_post_meta($order_id,'customer_ip_address',true)); ?></strong>
     </p>
     <?php
 
