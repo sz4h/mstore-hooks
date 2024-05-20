@@ -20,7 +20,7 @@ add_action('woocommerce_rest_insert_shop_order_object', 'my_woocommerce_rest_ins
 function my_woocommerce_rest_insert_shop_order_object(WC_Order $order, $request): void
 {
     if (isset($request['customer_ip_address']) && $request['customer_ip_address'] != '') {
-        $order->update_meta_data('customer_ip_address', $request['customer_ip_address']);
+        update_post_meta($order->get_id(), 'customer_ip_address', $request['customer_ip_address']);
     }
 }
 
@@ -38,7 +38,7 @@ function my_woocommerce_admin_order_data_after_order_details($order): void
     ?>
     <p class='form-field form-field-wide wc-customer-ip-address'>
         <label for='customer-ip-address'><?php esc_html_e('Customer IP Address:', 'woocommerce'); ?></label>
-        <strong><?php echo esc_html($order->get_meta('customer_ip_address')); ?></strong>
+        <strong><?php echo esc_html(get_post_meta($order_id,'customer_ip_address')); ?></strong>
     </p>
     <?php
 
